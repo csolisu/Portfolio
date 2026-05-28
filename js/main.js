@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const heroBg = document.querySelector('.hero-bg');
     if (heroBg) {
-        initSpiralWave(heroBg);
+        initMagneticGrid(heroBg);
     }
 
     document.querySelectorAll('.video-item video').forEach(video => {
@@ -146,13 +146,38 @@ function closeLightbox() {
     }
 }
 
-function initSpiralWave(container) {
+function initMagneticGrid(container) {
     const canvas = document.createElement('canvas');
     canvas.style.cssText = 'position:absolute;top:0;left:0;display:block';
     container.appendChild(canvas);
     const ctx = canvas.getContext('2d');
 
-    let W, H, cols, rows, spacing = 12;
+    let W, H;
+    const spacing = 30;
+    let points = [];
+
+    const mouse = { x: 0, y: 0, active: false };
+
+    function initGrid() {
+        points = [];
+        const cols = Math.floor(W / spacing) + 2;
+        const rows = Math.floor(H / spacing) + 2;
+        
+        for (let y = 0; y < rows; y++) {
+            for (let x = 0; x < cols; x++) {
+                const ox = x * spacing - spacing / 2;
+                const oy = y * spacing - spacing / 2;
+                points.push({
+                    x: ox,
+                    y: oy,
+                    ox: ox,
+                    oy: oy,
+                    vx: 0,
+                    vy: 0
+                });
+            }
+        }
+    }
 
     function resize() {
         const rect = container.getBoundingClientRect();
@@ -160,65 +185,116 @@ function initSpiralWave(container) {
         H = canvas.height = rect.height;
         canvas.style.width = rect.width + 'px';
         canvas.style.height = rect.height + 'px';
-        cols = Math.floor(W / spacing);
-        rows = Math.floor(H / spacing);
+        initGrid();
     }
     resize();
     window.addEventListener('resize', resize);
 
-    let time = 0;
-    let mx = container.getBoundingClientRect().width / 2, my = container.getBoundingClientRect().height / 2;
-    let smx = mx, smy = my;
-
-    canvas.addEventListener('mousemove', (e) => {
-        mx = e.offsetX;
-        my = e.offsetY;
+    window.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+        mouse.active = true;
     });
 
-    container.addEventListener('mouseleave', () => {
-        const rect = container.getBoundingClientRect();
-        mx = rect.width / 2;
-        my = rect.height / 2;
+    window.addEventListener('mouseout', () => {
+        mouse.active = false;
     });
 
     function draw() {
-        time += 0.02;
-        ctx.clearRect(0, 0, W, H);
+        // Limpiar fondo con color beige
+        ctx.fillStyle = 'rgb(242, 220, 194)'; // #F2DCC2
+        ctx.fillRect(0, 0, W, H);
 
-        smx += (mx - smx) * 0.08;
-        smy += (my - smy) * 0.08;
+        const forceRadius = 150;
+        const k = 0.08; // Rigidez del resorte
+        const damping = 0.85; // Amortiguación
 
-        const cx = W / 2;
-        const cy = H / 2;
+        // 1. Actualizar posiciones de los puntos
+        for (let i = 0; i < points.length; i++) {
+            const pt = points[i];
+            let dx = 0;
+            let dy = 0;
+            let dist = 0;
+
+            if (mouse.active) {
+                dx = pt.x - mouse.x;
+                dy = pt.y - mouse.y;
+                dist = Math.sqrt(dx * dx + dy * dy);
+            }
+
+            // Repulsión magnética
+            if (mouse.active && dist < forceRadius) {
+                const force = (forceRadius - dist) / forceRadius;
+                const angle = Math.atan2(dy, dx);
+                pt.vx += Math.cos(angle) * force * 3;
+                pt.vy += Math.sin(angle) * force * 3;
+            }
+
+            // Atracción de muelle a la posición original
+            const ax = (pt.ox - pt.x) * k;
+            const ay = (pt.oy - pt.y) * k;
+
+            pt.vx = (pt.vx + ax) * damping;
+            pt.vy = (pt.vy + ay) * damping;
+
+            pt.x += pt.vx;
+            pt.y += pt.vy;
+        }
+
+        // 2. Dibujar líneas de cuadrícula
+        ctx.strokeStyle = 'rgba(38, 37, 36, 0.04)'; // Carbón translúcido
+        ctx.lineWidth = 1;
+
+        const cols = Math.floor(W / spacing) + 2;
+        const rows = Math.floor(H / spacing) + 2;
 
         for (let y = 0; y < rows; y++) {
+            ctx.beginPath();
             for (let x = 0; x < cols; x++) {
-                const px = x * spacing + spacing / 2;
-                const py = y * spacing + spacing / 2;
-
-                const dx = px - cx;
-                const dy = py - cy;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                const angle = Math.atan2(dy, dx);
-
-                const wave = Math.sin(dist * 0.03 - time * 3 + angle) * 0.5 + 0.5;
-                const spiral = Math.sin(dist * 0.025 - time * 2 + angle * 3) * 0.5 + 0.5;
-
-                const mdx = px - smx;
-                const mdy = py - smy;
-                const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
-                const ripple = Math.sin(mdist * 0.06 - time * 3) * Math.exp(-mdist * 0.008) * 0.6;
-
-                const val = (wave * 0.5 + spiral * 0.5 + ripple);
-
-                if (val > 0.15) {
-                    const size = val * 3.5 + 0.5;
-                    const alpha = val * 0.25 + 0.04;
-                    ctx.beginPath();
-                    ctx.arc(px, py, size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 1.5})`;
-                    ctx.fill();
+                const idx = y * cols + x;
+                if (idx < points.length) {
+                    const pt = points[idx];
+                    if (x === 0) ctx.moveTo(pt.x, pt.y);
+                    else ctx.lineTo(pt.x, pt.y);
                 }
+            }
+            ctx.stroke();
+        }
+
+        for (let x = 0; x < cols; x++) {
+            ctx.beginPath();
+            for (let y = 0; y < rows; y++) {
+                const idx = y * cols + x;
+                if (idx < points.length) {
+                    const pt = points[idx];
+                    if (y === 0) ctx.moveTo(pt.x, pt.y);
+                    else ctx.lineTo(pt.x, pt.y);
+                }
+            }
+            ctx.stroke();
+        }
+
+        // 3. Dibujar puntos destacados con interpolación de color
+        for (let i = 0; i < points.length; i++) {
+            const pt = points[i];
+            const dx = pt.x - pt.ox;
+            const dy = pt.y - pt.oy;
+            const displacement = Math.sqrt(dx * dx + dy * dy);
+
+            if (displacement > 1) {
+                ctx.beginPath();
+                const size = Math.min(4, 1.5 + displacement * 0.1);
+                ctx.arc(pt.x, pt.y, size, 0, Math.PI * 2);
+
+                const t = Math.max(0, Math.min(1, (displacement - 1) / 14));
+                const r = Math.round(38 + (242 - 38) * t); // De 38 (carbón) a 242 (rojo #F24949)
+                const g = Math.round(37 + (73 - 37) * t);  // De 37 (carbón) a 73 (rojo)
+                const b = Math.round(36 + (73 - 36) * t);  // De 36 (carbón) a 73 (rojo)
+                const a = 0.2 + 0.7 * t; // Transición de opacidad de 0.2 a 0.9
+
+                ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${a})`;
+                ctx.fill();
             }
         }
 
