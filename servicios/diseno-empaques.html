@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Empaques | Portfolio</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .gallery-tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+        .gallery-tab-btn {
+            background-color: transparent;
+            border: 2px solid #262524;
+            color: #262524;
+            padding: 12px 24px;
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .gallery-tab-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background-color: rgba(242, 73, 73, 0.05);
+        }
+        .gallery-tab-btn.active {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: #F2DCC2;
+            font-weight: 700;
+        }
+        .gallery-section-title {
+            display: none;
+        }
+        .gallery-section {
+            margin-top: 0 !important;
+            animation: fadeIn 0.4s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="../index.html" class="logo">PORTFOLIO</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Inicio</a></li>
+                <li><a href="../index.html#diseno-edicion" class="nav-link">Diseño y Edición</a></li>
+                <li><a href="../index.html#fotografia" class="nav-link">Fotografía</a></li>
+                <li><a href="../sobre-mi.html" class="nav-link">Sobre mí</a></li>
+                <li><a href="../contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="project-header-grid">
+            <div class="project-header-cell">
+                <h1>Diseño Empaques</h1>
+            </div>
+            <div class="project-header-cell">
+                <span>Diseño y Edición</span>
+                <p>Packaging Design</p>
+            </div>
+            <div class="project-header-cell">
+                <span>Formato</span>
+                <p>Impresión Física</p>
+            </div>
+            <div class="project-header-cell">
+                <span>Año</span>
+                <p>2026</p>
+            </div>
+        </div>
+
+        <!-- Barra de Pestañas -->
+        <div class="gallery-tabs-container">
+            <button class="gallery-tab-btn active" onclick="switchTab(this, 'chips')">CHIPS (3 fotos)</button>
+            <button class="gallery-tab-btn" onclick="switchTab(this, 'weegstern')">WEEGSTERN (3 fotos)</button>
+        </div>
+
+        <section class="gallery">
+            <div class="gallery-section" id="gallery-chips">
+                <h2 class="gallery-section-title">CHIPS</h2>
+                <div class="gallery-grid cols-3">
+                    <div class="gallery-item"><img src="../assets/images/servicios/diseno-empaques/CHIPS/1.jpg" alt="CHIPS 1"></div>
+                    <div class="gallery-item"><img src="../assets/images/servicios/diseno-empaques/CHIPS/2.png" alt="CHIPS 2"></div>
+                    <div class="gallery-item"><img src="../assets/images/servicios/diseno-empaques/CHIPS/3.jpg" alt="CHIPS 3"></div>
+                </div>
+            </div>
+
+            <div class="gallery-section" id="gallery-weegstern" style="display: none;">
+                <h2 class="gallery-section-title">WEEGSTERN</h2>
+                <div class="gallery-grid cols-3">
+                    <div class="gallery-item"><img src="../assets/images/servicios/diseno-empaques/WEEGSTERN/3.png" alt="WEEGSTERN 1"></div>
+                    <div class="gallery-item"><img src="../assets/images/servicios/diseno-empaques/WEEGSTERN/4.png" alt="WEEGSTERN 2"></div>
+                    <div class="gallery-item"><img src="../assets/images/servicios/diseno-empaques/WEEGSTERN/5.png" alt="WEEGSTERN 3"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="https://www.instagram.com/carlossolisuzuriaga" target="_blank" class="social">Instagram</a>
+            <a href="https://www.linkedin.com/in/carlos-solis-uzuriaga" target="_blank" class="social">LinkedIn</a>
+            <a href="https://www.tiktok.com/@carlossolisuzuriaga" target="_blank" class="social">TikTok</a>
+        </div>
+        <p class="copyright">© 2026 Portfolio. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function switchTab(btn, galleryId) {
+            // Ocultar todas las secciones
+            document.getElementById('gallery-chips').style.display = 'none';
+            document.getElementById('gallery-weegstern').style.display = 'none';
+            
+            // Mostrar la sección seleccionada
+            document.getElementById('gallery-' + galleryId).style.display = 'block';
+            
+            // Quitar clase activa a los botones
+            const buttons = document.querySelectorAll('.gallery-tab-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            
+            // Añadir clase activa al botón presionado
+            btn.classList.add('active');
+        }
+    </script>
+</body>
+</html>

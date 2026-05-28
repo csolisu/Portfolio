@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Creativo Digital</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Efecto Duotono en Blanco y Negro con colores de la paleta (#262524 y #F2DCC2) */
+        .editorial-grid .card-image img,
+        .editorial-grid .card-image video {
+            filter: url(#duotone-filter);
+            transition: filter 0.4s ease, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        /* Desactivar filtro al pasar el cursor (recupera color original) */
+        .editorial-grid .card:hover .card-image img,
+        .editorial-grid .card:hover .card-image video {
+            filter: none !important;
+        }
+
+        /* --- ESTILO DE TARJETAS SEPARADAS Y REDONDEADAS --- */
+        
+        /* Grid con separación (gap) y sin marco exterior */
+        .editorial-grid {
+            border: none !important;
+            gap: 2rem !important;
+            padding: 0 !important; /* Las tarjetas se alinean con los bordes de la página */
+            width: calc(100% - 4rem) !important; /* Mantener márgenes a los lados en pantallas pequeñas */
+            margin: 0 auto !important; /* Centrado horizontal */
+            align-items: stretch !important; /* Estirar columnas para que mantengan la misma altura si es necesario, o mantener flex-start */
+        }
+        
+        /* Asegurar que las columnas tengan alineación de altura natural */
+        .editorial-grid.dark-grid {
+            align-items: flex-start !important;
+        }
+
+        /* Columnas sin bordes y con separación vertical entre tarjetas */
+        .editorial-grid .col {
+            border: none !important;
+            margin: 0 !important;
+            gap: 2rem !important;
+        }
+        
+        /* Tarjetas con esquinas redondeadas, fondo sólido y borde beige grueso de 2px */
+        .editorial-grid .card {
+            border: 2px solid #F2DCC2 !important; /* Borde de marco beige sólido de 2px */
+            border-radius: 16px !important;
+            background: #2d2c2b !important; /* Fondo gris carbón elevado */
+            overflow: hidden !important;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        /* Comportamiento al pasar el cursor sobre la tarjeta */
+        .editorial-grid .card:hover {
+            transform: translateY(-8px) !important;
+            border-color: var(--accent) !important; /* Borde rojo de acento al hover */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45) !important;
+            background: #363433 !important; /* Resaltar fondo */
+        }
+        
+        /* Redondear las esquinas inferiores del área de contenido */
+        .editorial-grid .card-content {
+            border-bottom-left-radius: 16px !important;
+            border-bottom-right-radius: 16px !important;
+            background: transparent !important;
+            padding: 1.5rem !important;
+        }
+        
+        /* Redondear las esquinas superiores del contenedor de imagen/video y agregar borde divisor beige de 2px */
+        .editorial-grid .card-image {
+            border-bottom: 2px solid #F2DCC2 !important; /* Borde divisor beige de 2px */
+            border-top-left-radius: 16px !important;
+            border-top-right-radius: 16px !important;
+            overflow: hidden !important;
+            transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        /* Cambiar el divisor interior a rojo al pasar el cursor */
+        .editorial-grid .card:hover .card-image {
+            border-bottom-color: var(--accent) !important;
+        }
+
+        /* Corregir el hover de zoom de la imagen dentro de la tarjeta redondeada */
+        .editorial-grid .card:hover .card-image img,
+        .editorial-grid .card:hover .card-image video {
+            transform: scale(1.05) !important;
+        }
+
+        /* Animación suave para la flecha indicadora */
+        .editorial-grid .card-content h3::after {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s !important;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">PORTFOLIO</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="#diseno-edicion" class="nav-link">Diseño y Edición</a></li>
+                <li><a href="#fotografia" class="nav-link">Fotografía</a></li>
+                <li><a href="sobre-mi.html" class="nav-link">Sobre mí</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title"><span>Portfolio</span><br>Creativo</h1>
+                <p class="hero-name">Carlos Javier Solis Uzuriaga</p>
+                <a href="#diseno-edicion" class="btn">Ver Proyectos</a>
+            </div>
+        </section>
+
+        <div class="dark-grid-container">
+            <section id="diseno-edicion" class="section dark-grid">
+                <h2 class="section-title">Diseño y Edición</h2>
+                <div class="editorial-grid dark-grid">
+                    <div class="col">
+                        <a href="servicios/animacion-redes.html" class="card">
+                            <div class="card-image" style="aspect-ratio: 9/16">
+                                <video src="assets/images/servicios/animacion-redes/Personales/pepsi.mp4" muted loop playsinline preload="metadata" poster="assets/images/servicios/animacion-redes/Personales/poster-pepsi.jpg"></video>
+                            </div>
+                            <div class="card-content">
+                                <h3>Animación Redes</h3>
+                                <p>Contenido animado para redes sociales</p>
+                            </div>
+                        </a>
+                        <a href="servicios/vallas-publicidad.html" class="card">
+                            <div class="card-image" style="aspect-ratio: 1920/962">
+                                <img src="assets/images/servicios/vallas-publicidad/PERSONAL/poster-1.jpg" alt="Vallas Publicidad">
+                            </div>
+                            <div class="card-content">
+                                <h3>Vallas Exterior</h3>
+                                <p>Publicidad exterior y vallas</p>
+                            </div>
+                        </a>
+                        <a href="servicios/ilustracion.html" class="card">
+                            <div class="card-image" style="aspect-ratio: 1/1">
+                                <img src="assets/images/servicios/ilustracion/ALBUM CONCEPTUAL/Mesa de trabajo 1.jpg" alt="Ilustración">
+                            </div>
+                            <div class="card-content">
+                                <h3>Ilustración</h3>
+                                <p>Ilustración digital</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="servicios/edicion-contenido.html" class="card">
+                            <div class="card-image" style="aspect-ratio: 9/16">
+                                <video src="assets/images/servicios/edicion-contenido/CORSENKLUB/2.mp4" muted loop playsinline preload="metadata" poster="assets/images/servicios/edicion-contenido/CORSENKLUB/poster-2.jpg"></video>
+                            </div>
+                            <div class="card-content">
+                                <h3>Edición Contenido</h3>
+                                <p>Edición de video y contenido digital</p>
+                            </div>
+                        </a>
+                        <a href="servicios/visuales-redes.html" class="card">
+                            <div class="card-image" style="aspect-ratio: 4/5">
+                                <img src="assets/images/servicios/visuales-redes/TOCOSH/4.jpg" alt="Visuales Redes">
+                            </div>
+                            <div class="card-content">
+                                <h3>Visuales Redes</h3>
+                                <p>Gráficos para redes sociales</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="servicios/logofolio.html" class="card">
+                            <div class="card-image" style="aspect-ratio: 1/1">
+                                <img src="assets/images/servicios/logofolio-apps/Mesa de trabajo 2.jpg" alt="Logofolio Apps">
+                            </div>
+                            <div class="card-content">
+                                <h3>Logofolio</h3>
+                                <p>Logotipos y aplicaciones</p>
+                            </div>
+                        </a>
+                        <a href="servicios/diseno-empaques.html" class="card">
+                            <div class="card-image" style="aspect-ratio: 3277/4096">
+                                <img src="assets/images/servicios/diseno-empaques/CHIPS/1.jpg" alt="Diseño Empaques">
+                            </div>
+                            <div class="card-content">
+                                <h3>Diseño Empaques</h3>
+                                <p>Diseño de empaques y packaging</p>
+                            </div>
+                        </a>
+                        <a href="servicios/diseno-editorial.html" class="card">
+                            <div class="card-image" style="aspect-ratio: 16/9">
+                                <img src="assets/images/servicios/diseno-editorial/miniatura.jpg" alt="Diseño Editorial">
+                            </div>
+                            <div class="card-content">
+                                <h3>Diseño Editorial</h3>
+                                <p>Diseño editorial y publicaciones</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="fotografia" class="section dark-grid">
+                <h2 class="section-title">Fotografía</h2>
+                <div class="editorial-grid dark-grid">
+                    <div class="col">
+                        <a href="fotografia/fotos-eventos.html" class="card">
+                            <div class="card-image" style="aspect-ratio: 2/3">
+                                <img src="assets/images/fotografia/fotos-eventos/LEFS/_DSC4369.jpg" alt="Fotos Eventos">
+                            </div>
+                            <div class="card-content">
+                                <h3>Fotos Eventos</h3>
+                                <p>Cobertura de eventos</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="fotografia/fotos-deportivo.html" class="card">
+                            <div class="card-image" style="aspect-ratio: 4/5">
+                                <img src="assets/images/fotografia/fotos-deportivo/RAY%20SPORT/RAYSPORT%20INSTAGRAM%204-5-13.jpg" alt="Deportivo">
+                            </div>
+                            <div class="card-content">
+                                <h3>Deportivo</h3>
+                                <p>Fotografía deportiva</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="fotografia/fotos-sesiones.html" class="card">
+                            <div class="card-image" style="aspect-ratio: 1/1">
+                                <img src="assets/images/fotografia/fotos-sesiones/DENISSE/2.jpg" alt="Sesiones">
+                            </div>
+                            <div class="card-content">
+                                <h3>Sesiones</h3>
+                                <p>Sesiones fotográficas</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta dark-grid">
+                <h2>¿Necesitas un proyecto?</h2>
+                <p>Hablemos sobre tu idea</p>
+                <a href="contacto.html" class="btn">Contáctame</a>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="https://www.instagram.com/carlossolisuzuriaga" target="_blank" class="social">Instagram</a>
+            <a href="https://www.linkedin.com/in/carlos-solis-uzuriaga" target="_blank" class="social">LinkedIn</a>
+            <a href="https://www.tiktok.com/@carlossolisuzuriaga" target="_blank" class="social">TikTok</a>
+        </div>
+        <p class="copyright">© 2026 Portfolio. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Definición matemática del filtro Duotono SVG -->
+    <svg style="display: none;">
+        <filter id="duotone-filter">
+            <!-- Conversión a escala de grises basada en luminancia -->
+            <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0
+                                                 0.2126 0.7152 0.0722 0 0
+                                                 0.2126 0.7152 0.0722 0 0
+                                                 0      0      0      1 0"/>
+            <!-- Mapeo de sombras a #262524 (0.149, 0.145, 0.141) y luces a #F2DCC2 (0.949, 0.863, 0.761) -->
+            <feComponentTransfer>
+                <feFuncR type="table" tableValues="0.149 0.949"/>
+                <feFuncG type="table" tableValues="0.145 0.863"/>
+                <feFuncB type="table" tableValues="0.141 0.761"/>
+            </feComponentTransfer>
+        </filter>
+    </svg>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

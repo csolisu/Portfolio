@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logofolio | Portfolio</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .gallery-grid.centered-two-cols {
+            display: flex !important;
+            justify-content: center !important;
+            flex-wrap: wrap !important;
+            gap: 1rem !important;
+            max-width: 800px !important;
+            margin: 0 auto !important;
+        }
+        .gallery-grid.centered-two-cols .gallery-item {
+            flex: 0 1 389px !important;
+            max-width: 389px !important;
+            width: 100% !important;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="../index.html" class="logo">PORTFOLIO</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Inicio</a></li>
+                <li><a href="../index.html#diseno-edicion" class="nav-link">Diseño y Edición</a></li>
+                <li><a href="../index.html#fotografia" class="nav-link">Fotografía</a></li>
+                <li><a href="../sobre-mi.html" class="nav-link">Sobre mí</a></li>
+                <li><a href="../contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="project-header-grid">
+            <div class="project-header-cell">
+                <h1>Logofolio</h1>
+            </div>
+            <div class="project-header-cell">
+                <span>Diseño y Edición</span>
+                <p>Branding & Identity</p>
+            </div>
+            <div class="project-header-cell">
+                <span>Formato</span>
+                <p>Digital & Print</p>
+            </div>
+            <div class="project-header-cell">
+                <span>Año</span>
+                <p>2026</p>
+            </div>
+        </div>
+
+        <section class="gallery">
+            <div class="gallery-grid centered-two-cols">
+                <div class="gallery-item">
+                    <img src="../assets/images/servicios/logofolio-apps/Mesa de trabajo 1.jpg" alt="Mesa 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/images/servicios/logofolio-apps/Mesa de trabajo 2.jpg" alt="Mesa 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/images/servicios/logofolio-apps/Mesa de trabajo 3.jpg" alt="Mesa 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/images/servicios/logofolio-apps/Mesa de trabajo 4.jpg" alt="Mesa 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/images/servicios/logofolio-apps/Mesa de trabajo 5.jpg" alt="Mesa 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/images/servicios/logofolio-apps/Mesa de trabajo 6.png" alt="Mesa 6">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="https://www.instagram.com/carlossolisuzuriaga" target="_blank" class="social">Instagram</a>
+            <a href="https://www.linkedin.com/in/carlos-solis-uzuriaga" target="_blank" class="social">LinkedIn</a>
+            <a href="https://www.tiktok.com/@carlossolisuzuriaga" target="_blank" class="social">TikTok</a>
+        </div>
+        <p class="copyright">© 2026 Portfolio. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

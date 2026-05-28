@@ -1,0 +1,11 @@
+.env
+.env.local
+.env.*
+node_modules/
+.DS_Store
+dist/
+build/
+.vscode/
+.antigravitycli/
+experimentos/
+*.backup.html
