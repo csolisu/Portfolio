@@ -1,0 +1,15 @@
+# www.robotstxt.org/
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Exclude configuration files, VS Code setup and scripts
+Disallow: /.vscode/
+Disallow: /.antigravitycli/
+Disallow: /experimentos/
+Disallow: /index.backup.html
+Disallow: /sync.py
+
+# Link to sitemap
+Sitemap: https://csolisu.github.io/Portfolio/sitemap.xml
