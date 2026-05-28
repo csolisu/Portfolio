@@ -12,4 +12,4 @@ Disallow: /index.backup.html
 Disallow: /sync.py
 
 # Link to sitemap
-Sitemap: https://csolisu.github.io/Portfolio/sitemap.xml
+Sitemap: https://carlossolisuzuriaga.com/sitemap.xml
