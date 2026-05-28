@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&amp;display=swap');
+      .bg { fill: #F2DCC2; }
+      .text {
+        font-family: 'Oswald', 'Arial Black', sans-serif;
+        font-weight: 700;
+        font-size: 200px;
+        fill: #262524;
+        text-anchor: middle;
+        dominant-baseline: central;
+      }
+    </style>
+  </defs>
+  <rect class="bg" width="512" height="512" rx="110"/>
+  <text x="256" y="266" class="text">CSU</text>
+</svg>
