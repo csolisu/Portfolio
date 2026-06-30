@@ -615,10 +615,7 @@ img, video {
 
 
     letter-spacing: 0.15em;
-
-
-
-    text-transform: uppercase;
+    text-transform: none;
 
 
 
@@ -3703,10 +3700,7 @@ body {
 
 
     letter-spacing: 0.05em;
-
-
-
-    text-transform: uppercase;
+    text-transform: none;
 
 
 
