@@ -50,7 +50,7 @@
 
 
 
-    --font-display: 'Oswald', sans-serif;
+    --font-display: 'Noto Sans', sans-serif;
 
 
 
@@ -5934,4 +5934,22 @@ body {
 
 
 
+}
+/* Aplicar estilo Noto Sans Black 900 Italic a todos los elementos display */
+.logo,
+.hero-title,
+.section-title,
+.card-content h3,
+.cta h2,
+.page-title,
+.about-text h2,
+.skills h3,
+.contact h1,
+.gallery-section-title,
+.skills-headline,
+.editorial-grid .card-content h3,
+.project-header-cell h1 {
+    font-family: var(--font-display) !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
 }
