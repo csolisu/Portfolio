@@ -488,14 +488,9 @@ img, video {
 
 
 .hero-content {
-
-
-
     text-align: center;
-
-
-
     z-index: 1;
+    padding: 0 1.5rem;
 
 
 
@@ -508,14 +503,8 @@ img, video {
 
 
 .hero-title {
-
-
-
     font-family: var(--font-display);
-
-
-
-    font-size: clamp(3rem, 10vw, 8rem);
+    font-size: clamp(2rem, 10vw, 8rem);
 
 
 
