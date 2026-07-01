@@ -3596,7 +3596,7 @@ body {
 .hero-title {
     color: var(--text);
     font-family: var(--font-display);
-    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    font-size: clamp(2.5rem, 12vw, 3.5rem);
     font-weight: 800;
     line-height: 1;
     letter-spacing: -0.02em;
@@ -3610,7 +3610,7 @@ body {
 
 .hero-name {
     color: var(--text-muted);
-    font-size: clamp(0.9rem, 4vw, 1.2rem);
+    font-size: clamp(1rem, 4vw, 1.4rem);
     font-weight: 500;
     letter-spacing: 0.05em;
     text-transform: none;
@@ -3640,7 +3640,7 @@ body {
     color: var(--text);
     font-weight: 700;
     border-radius: 0px;
-    padding: 0.75rem 1.75rem;
+    padding: 0.85rem 2rem;
     transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
     box-shadow: 4px 4px 0px var(--text);
     position: relative;
