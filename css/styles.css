@@ -50,11 +50,8 @@
 
 
 
-    --font-display: 'Noto Sans', sans-serif;
-
-
-
-    --font-body: 'DM Sans', sans-serif;
+    --font-display: 'Archivo Black', sans-serif;
+    --font-body: 'Inter', sans-serif;
 
 
 
@@ -595,13 +592,9 @@ img, video {
 
 
 .hero-name {
-
-
-
     font-family: var(--font-body);
-
-
-
+    font-weight: 300 !important;
+    font-style: normal !important;
     font-size: clamp(1.2rem, 3vw, 2rem);
 
 
@@ -5945,5 +5938,5 @@ body {
 .project-header-cell h1 {
     font-family: var(--font-display) !important;
     font-weight: 900 !important;
-    font-style: italic !important;
+    font-style: normal !important;
 }
