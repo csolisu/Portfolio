@@ -3596,7 +3596,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../fondos/fondo.jpg');
+    background-image: url('../fondos/fondo.jpg?v=1.0.1');
     background-size: cover;
     background-position: center;
     opacity: 0.15;
