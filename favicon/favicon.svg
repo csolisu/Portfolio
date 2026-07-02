@@ -1,18 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <defs>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Capa_1" viewBox="0 0 512 512" width="512" height="512"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&amp;display=swap');
-      .bg { fill: #F2DCC2; }
-      .text {
-        font-family: 'Oswald', 'Arial Black', sans-serif;
-        font-weight: 700;
-        font-size: 200px;
-        fill: #262524;
-        text-anchor: middle;
-        dominant-baseline: central;
+      .st0 {
+        fill: #ff4560;
+      }
+
+      .st1 {
+        fill: #fff;
+      }
+
+      .st2 {
+        fill: #1c1b17;
+      }
+
+      .st3 {
+        font-family: ArchivoBlack-Regular, 'Archivo Black';
+        font-size: 310.3px;
+        isolation: isolate;
       }
     </style>
-  </defs>
-  <rect class="bg" width="512" height="512" rx="110"/>
-  <text x="256" y="266" class="text">CSU</text>
-</svg>
+  </defs><rect class="st2" width="512" height="512" rx="110" ry="110"></rect><text class="st3" transform="translate(23.3 364.1)"><tspan class="st0" x="0" y="0">C</tspan><tspan class="st1" x="241.4" y="0">S</tspan></text></svg>

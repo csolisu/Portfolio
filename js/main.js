@@ -152,6 +152,17 @@ function initMagneticGrid(container) {
     container.appendChild(canvas);
     const ctx = canvas.getContext('2d');
 
+    // Obtener el color de las líneas dinámicamente desde el CSS
+    const textStyle = getComputedStyle(document.documentElement).getPropertyValue('--text').trim();
+    let gridStrokeColor = 'rgba(255, 255, 255, 0.06)'; // Valor por defecto en blanco
+    if (textStyle.startsWith('#')) {
+        const hex = textStyle.replace('#', '');
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
+        gridStrokeColor = `rgba(${r}, ${g}, ${b}, 0.06)`;
+    }
+
     let W, H;
     const spacing = 30;
     let points = [];
@@ -202,9 +213,8 @@ function initMagneticGrid(container) {
     });
 
     function draw() {
-        // Limpiar fondo con color beige
-        ctx.fillStyle = 'rgb(242, 220, 194)'; // #F2DCC2
-        ctx.fillRect(0, 0, W, H);
+        // Limpiar con transparencia para ver la imagen de fondo de .hero-bg
+        ctx.clearRect(0, 0, W, H);
 
         const forceRadius = 150;
         const k = 0.08; // Rigidez del resorte
@@ -243,7 +253,7 @@ function initMagneticGrid(container) {
         }
 
         // 2. Dibujar líneas de cuadrícula
-        ctx.strokeStyle = 'rgba(38, 37, 36, 0.04)'; // Carbón translúcido
+        ctx.strokeStyle = gridStrokeColor; // Carbón translúcido
         ctx.lineWidth = 1;
 
         const cols = Math.floor(W / spacing) + 2;

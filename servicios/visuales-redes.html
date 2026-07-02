@@ -43,7 +43,7 @@
 
     <!-- Favicons -->
 
-    <link rel="stylesheet" href="../css/styles.css?v=1.0.1">
+    <link rel="stylesheet" href="../css/styles.css?v=1.0.8">
     
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,8 +61,8 @@
         }
         .gallery-tab-btn {
             background-color: transparent;
-            border: 2px solid #262524;
-            color: #262524;
+            border: 2px solid var(--text, #262524);
+            color: var(--text, #262524);
             padding: 12px 24px;
             font-family: var(--font-body);
             font-size: 14px;
@@ -80,7 +80,7 @@
         .gallery-tab-btn.active {
             background-color: var(--accent);
             border-color: var(--accent);
-            color: #F2DCC2;
+            color: var(--bg, #F2DCC2);
             font-weight: 700;
         }
         .gallery-section-title {
@@ -112,7 +112,7 @@
         }
 </style>
 </head>
-<body>
+<body class="dark-grid">
     <header class="header">
         <nav class="nav">
             <a href="../index.html" class="logo">PORTFOLIO</a>

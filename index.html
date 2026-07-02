@@ -43,7 +43,7 @@
 
     <!-- Favicons -->
 
-    <link rel="stylesheet" href="css/styles.css?v=1.0.1">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.8">
     
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,7 +89,7 @@
         
         /* Tarjetas con esquinas redondeadas, fondo sólido y borde beige grueso de 2px */
         .editorial-grid .card {
-            border: 2px solid #F2DCC2 !important; /* Borde de marco beige sólido de 2px */
+            border: 2px solid var(--card-border, #302f30) !important; /* Borde de marco personalizado de 2px */
             border-radius: 16px !important;
             background: #2d2c2b !important; /* Fondo gris carbón elevado */
             overflow: hidden !important;
@@ -117,7 +117,7 @@
         
         /* Redondear las esquinas superiores del contenedor de imagen/video y agregar borde divisor beige de 2px */
         .editorial-grid .card-image {
-            border-bottom: 2px solid #F2DCC2 !important; /* Borde divisor beige de 2px */
+            border-bottom: 2px solid var(--card-border, #302f30) !important; /* Borde divisor personalizado de 2px */
             border-top-left-radius: 16px !important;
             border-top-right-radius: 16px !important;
             overflow: hidden !important;
@@ -321,9 +321,9 @@
                                                  0      0      0      1 0"/>
             <!-- Mapeo de sombras a #262524 (0.149, 0.145, 0.141) y luces a #F2DCC2 (0.949, 0.863, 0.761) -->
             <feComponentTransfer>
-                <feFuncR type="table" tableValues="0.149 0.949"/>
-                <feFuncG type="table" tableValues="0.145 0.863"/>
-                <feFuncB type="table" tableValues="0.141 0.761"/>
+                <feFuncR type="table" tableValues="0.067 0.416" />
+                <feFuncG type="table" tableValues="0.063 0.400" />
+                <feFuncB type="table" tableValues="0.051 0.361" />
             </feComponentTransfer>
         </filter>
     </svg>

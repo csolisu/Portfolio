@@ -23,38 +23,29 @@
 
 
 :root {
-
-
-
-    --bg: #F2DCC2;
-
-
-
-    --bg-secondary: #E8D2B8;
-
-
-
-    --text: #262524;
-
-
-
-    --text-muted: #6B655F;
-
-
-
-    --accent: #F24949;
-
-
-
-    --accent-secondary: #262524;
-
-
-
+    --bg: #080807;
+    --bg-rgb: 8, 8, 7;
+    --bg-secondary: #1c1b17;
+    --text: #ffffff;
+    --text-rgb: 255, 255, 255;
+    --text-muted: #dedede;
+    --accent: #FF4560;
+    --accent-rgb: 255, 69, 96;
+    --duotone-shadow: #11100d;
+    --duotone-light: #6a665c;
+    --dark-grid-bg: #1C1B17;
+    --dark-grid-bg-rgb: 28, 27, 23;
+    --dark-grid-text: #ffffff;
+    --dark-grid-text-rgb: 255, 255, 255;
+    --card-title: #807A6F;
+    --card-muted: #807A6F;
+    --card-border: #302f30;
     --font-display: 'Archivo Black', sans-serif;
+    --font-weight-display: 900;
+    --font-style-display: normal;
     --font-body: 'Inter', sans-serif;
-
-
-
+    --font-weight-body: 300;
+    --font-style-body: normal;
 }
 
 
@@ -614,22 +605,10 @@ img, video {
 
 
 .btn {
-
-
-
     display: inline-block;
-
-
-
     padding: 0.75rem 1.75rem;
-
-
-
     background: var(--accent);
-
-
-
-    color: #F2DCC2;
+    color: var(--bg);
 
 
 
@@ -662,14 +641,8 @@ img, video {
 
 
 .btn:hover {
-
-
-
-    background: var(--accent-secondary);
-
-
-
-    color: #F2DCC2;
+    background: var(--text);
+    color: var(--bg);
 
 
 
@@ -2321,7 +2294,7 @@ img, video {
 
 
 
-    color: #F2DCC2;
+    color: var(--text);
 
 
 
@@ -2985,7 +2958,7 @@ img, video {
 
 
 
-    color: #F2DCC2;
+    color: var(--text);
 
 
 
@@ -3037,7 +3010,7 @@ img, video {
 
 
 
-    color: #F2DCC2;
+    color: var(--text);
 
 
 
@@ -3321,7 +3294,7 @@ img, video {
 
 
 
-    color: #F2DCC2;
+    color: var(--text);
 
 
 
@@ -3445,17 +3418,6 @@ body {
 
 
 
-    background-image: 
-
-
-
-        linear-gradient(rgba(38, 37, 36, 0.05) 1px, transparent 1px),
-
-
-
-        linear-gradient(90deg, rgba(38, 37, 36, 0.05) 1px, transparent 1px);
-
-
 
     background-size: 32px 32px, 32px 32px;
 
@@ -3493,11 +3455,11 @@ body {
 
 
 
-    background: rgba(242, 220, 194, 0.85);
+    background: rgba(var(--bg-rgb, 8, 8, 7), 0.85);
 
 
 
-    border-bottom: 1px solid rgba(38, 37, 36, 0.05);
+    border-bottom: 1px solid rgba(var(--text-rgb, 255, 255, 255), 0.05);
 
 
 
@@ -3509,6 +3471,11 @@ body {
 
 
 
+}
+
+.dark-grid .header {
+    background: rgba(var(--dark-grid-bg-rgb, 34, 33, 30), 0.85) !important;
+    border-bottom: 1px solid rgba(var(--dark-grid-text-rgb, 255, 255, 255), 0.05) !important;
 }
 
 
@@ -3622,6 +3589,21 @@ body {
     animation: none !important;
 }
 
+.hero-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../fondos/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    mix-blend-mode: screen;
+    z-index: -1;
+}
+
 /* Portada con Diagrama Unificado (Image 2 style) */
 .hero-diagram {
     position: absolute;
@@ -3643,7 +3625,7 @@ body {
     font-size: 0.85rem;
     padding: 0.65rem 1.6rem;
     transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-    box-shadow: 4px 4px 0px var(--text);
+    
     position: relative;
     z-index: 2;
 }
@@ -3673,7 +3655,7 @@ body {
 
 
 
-    color: #F2DCC2;
+    color: var(--text);
 
 
 
@@ -3681,11 +3663,11 @@ body {
 
 
 
-    transform: translate(2px, 2px);
+    
 
 
 
-    box-shadow: 2px 2px 0px var(--accent-secondary);
+    
 
 
 
@@ -3705,7 +3687,7 @@ body {
 
 
 
-    background-color: #262524 !important;
+    background-color: var(--dark-grid-bg, #22211e) !important;
 
 
 
@@ -3713,11 +3695,11 @@ body {
 
 
 
-        linear-gradient(rgba(242, 220, 194, 0.035) 1px, transparent 1px),
+        linear-gradient(rgba(var(--text-rgb, 255, 255, 255), 0.035) 1px, transparent 1px),
 
 
 
-        linear-gradient(90deg, rgba(242, 220, 194, 0.035) 1px, transparent 1px) !important;
+        linear-gradient(90deg, rgba(var(--text-rgb, 255, 255, 255), 0.035) 1px, transparent 1px) !important;
 
 
 
@@ -3725,7 +3707,7 @@ body {
 
 
 
-    color: #F2DCC2 !important;
+    color: var(--text) !important;
 
 
 
@@ -3897,7 +3879,7 @@ body {
 
 
 
-    color: #F2DCC2 !important;
+    color: var(--text) !important;
 
 
 
@@ -3909,7 +3891,7 @@ body {
 
 
 
-    color: #A29B90 !important;
+    color: var(--text-muted, #A29B90) !important;
 
 
 
@@ -3921,7 +3903,7 @@ body {
 
 
 
-    color: #F2DCC2 !important;
+    color: var(--text) !important;
 
 
 
@@ -3957,7 +3939,7 @@ body {
 
 
 
-    color: #F2DCC2 !important;
+    color: var(--text) !important;
 
 
 
@@ -3993,15 +3975,15 @@ body {
 
 
 
-    border-color: #F2DCC2;
+    border-color: var(--text);
 
 
 
-    color: #F2DCC2;
+    color: var(--text);
 
 
 
-    box-shadow: 4px 4px 0px #F2DCC2;
+    
 
 
 
@@ -4017,7 +3999,7 @@ body {
 
 
 
-    color: #F2DCC2;
+    color: var(--text);
 
 
 
@@ -4025,7 +4007,7 @@ body {
 
 
 
-    box-shadow: 2px 2px 0px #000000;
+    
 
 
 
@@ -4133,7 +4115,7 @@ body {
 
 
 
-    color: #F2DCC2;
+    color: var(--text);
 
 
 
@@ -4229,7 +4211,7 @@ body {
 
 
 
-    border: 2px solid rgba(38, 37, 36, 0.12);
+    border: 2px solid var(--text) !important;
 
 
 
@@ -4249,11 +4231,12 @@ body {
 
 
 
+.form-group input:hover, .form-group textarea:hover,
 .form-group input:focus, .form-group textarea:focus {
 
 
 
-    border-color: var(--accent);
+    border-color: var(--accent) !important;
 
 
 
@@ -4261,58 +4244,29 @@ body {
 
 
 
-    box-shadow: 0 0 0 3px rgba(242, 73, 73, 0.1);
+    outline: none;
 
-
+    box-shadow: none;
 
 }
 
 
 
 .submit-btn {
-
-
-
-    background: var(--text);
-
-
-
-    color: var(--bg);
-
-
-
+    background: transparent;
+    border: 2px solid var(--text);
+    color: var(--text);
     font-weight: 700;
-
-
-
     border-radius: 0px;
-
-
-
-    box-shadow: 4px 4px 0px var(--text-muted);
-
-
-
+    padding: 0.65rem 1.6rem;
 }
 
 
 
 .submit-btn:hover {
-
-
-
     background: var(--accent);
-
-
-
-    color: #F2DCC2;
-
-
-
-    box-shadow: 2px 2px 0px var(--accent-secondary);
-
-
-
+    color: var(--text);
+    border-color: var(--accent);
 }
 
 
@@ -4365,7 +4319,7 @@ body {
 
 
 
-    background-color: #262524 !important;
+    background-color: var(--dark-grid-bg, #22211e) !important;
 
 
 
@@ -4393,7 +4347,7 @@ body {
 
 
 
-    color: #F2DCC2 !important;
+    color: var(--text) !important;
 
 
 
@@ -4421,7 +4375,7 @@ body {
 
 
 
-    color: #6B655F !important;
+    color: #807A6F !important;
 
 
 
@@ -5062,57 +5016,27 @@ body {
 
 
 .dark-grid.editorial-grid {
-
-
-
-    border-top-color: #F2DCC2 !important;
-
-
-
+    border-top-color: rgba(var(--dark-grid-text-rgb, 255, 255, 255), 0.1) !important;
     border-bottom: none !important;
-
-
-
 }
 
 
 
 .dark-grid.editorial-grid .col {
-
-
-
-    border-left-color: #F2DCC2 !important;
-
-
-
-    border-right-color: #F2DCC2 !important;
-
-
-
+    border-left-color: rgba(var(--dark-grid-text-rgb, 255, 255, 255), 0.1) !important;
+    border-right-color: rgba(var(--dark-grid-text-rgb, 255, 255, 255), 0.1) !important;
 }
 
 
 
 .dark-grid.editorial-grid .card {
-
-
-
-    border-bottom-color: #F2DCC2 !important;
-
-
-
+    border-bottom-color: var(--card-border, #302f30) !important;
 }
 
 
 
 .dark-grid.editorial-grid .card-image {
-
-
-
-    border-bottom-color: #F2DCC2 !important;
-
-
-
+    border-bottom-color: var(--card-border, #302f30) !important;
 }
 
 
@@ -5130,13 +5054,7 @@ body {
 
 
 .dark-grid.editorial-grid .card-content h3 {
-
-
-
-    color: #F2DCC2 !important;
-
-
-
+    color: var(--card-title, #807A6F) !important;
 }
 
 
@@ -5470,22 +5388,10 @@ body {
 
 
     .dark-grid.editorial-grid .card {
-
-
-
-        border-left-color: #F2DCC2 !important;
-
-
-
-        border-right-color: #F2DCC2 !important;
-
-
-
-        border-bottom-color: #F2DCC2 !important;
-
-
-
-    }
+    border-left-color: var(--card-border, #302f30) !important;
+    border-right-color: var(--card-border, #302f30) !important;
+    border-bottom-color: var(--card-border, #302f30) !important;
+}
 
 
 
@@ -5783,4 +5689,10 @@ body {
     font-family: var(--font-display) !important;
     font-weight: 900 !important;
     font-style: normal !important;
+}
+
+/* Hacer que las letras de la descripción de las tarjetas se vuelvan blancas al pasar el mouse */
+.editorial-grid .card:hover .card-content h3,
+.editorial-grid .card:hover .card-content p {
+    color: var(--text, #ffffff) !important;
 }
