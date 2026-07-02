@@ -5696,3 +5696,14 @@ body {
 .editorial-grid .card:hover .card-content p {
     color: var(--text, #ffffff) !important;
 }
+
+/* Ajuste de escala para laptops con pantallas 1920x1080 (con escalado a 125%) */
+@media screen and (min-width: 1025px) and (max-width: 1600px) {
+    body {
+        zoom: 0.8;
+    }
+    .hero {
+        min-height: 125vh !important;
+    }
+}
+
