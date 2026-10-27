@@ -131,14 +131,14 @@
         .whatsapp-card:hover {
             border-color: #ffffff;
         }
-        .whatsapp-btn {
+                .whatsapp-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            background-color: #25D366;
-            color: #ffffff !important;
-            border: 2px solid #25D366;
+            background-color: transparent;
+            color: var(--text, #ffffff) !important;
+            border: 2px solid var(--text, #ffffff);
             padding: 14px 28px;
             border-radius: 0;
             font-family: var(--font-body);
@@ -154,9 +154,9 @@
             transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
         }
         .whatsapp-btn:hover {
-            background-color: transparent;
-            border-color: #ffffff;
-            color: #ffffff !important;
+            background-color: rgba(242, 73, 73, 0.05);
+            border-color: var(--accent, #F24949);
+            color: var(--accent, #F24949) !important;
             transform: translateY(-3px);
             box-shadow: none;
         }
