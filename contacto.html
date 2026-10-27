@@ -114,7 +114,7 @@
             height: 18px;
             fill: currentColor;
         }
-                                /* --- ESTILOS DE CONTACTO POR WHATSAPP Y QR --- */
+                                        /* --- ESTILOS DE CONTACTO POR WHATSAPP Y QR --- */
         .whatsapp-card {
             background: #1C1B17;
             border: 2px solid var(--card-border, #302f30);
@@ -138,32 +138,34 @@
             gap: 12px;
             background-color: #25D366;
             color: #ffffff !important;
-            border: none;
-            padding: 16px 28px;
-            border-radius: 50px;
+            border: 2px solid #25D366;
+            padding: 14px 28px;
+            border-radius: 0;
             font-family: var(--font-body);
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
             text-decoration: none;
             cursor: pointer;
             width: 100%;
             max-width: 380px;
-            box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: none;
+            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
         }
         .whatsapp-btn:hover {
-            background-color: #20ba5a;
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            background-color: transparent;
+            border-color: #ffffff;
             color: #ffffff !important;
+            transform: translateY(-3px);
+            box-shadow: none;
         }
         .whatsapp-btn svg {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             fill: currentColor;
             flex-shrink: 0;
+            transition: fill 0.3s ease;
         }
         .whatsapp-divider {
             display: flex;
@@ -218,8 +220,8 @@
                 padding: 2rem 1.25rem;
             }
             .whatsapp-btn {
-                padding: 14px 20px;
-                font-size: 14px;
+                padding: 12px 20px;
+                font-size: 13px;
             }
             .qr-frame img {
                 width: 150px;
