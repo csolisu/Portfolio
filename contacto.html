@@ -114,6 +114,122 @@
             height: 18px;
             fill: currentColor;
         }
+                        /* --- ESTILOS DE CONTACTO POR WHATSAPP Y QR --- */
+        .whatsapp-card {
+            background: #1C1B17;
+            border: 2px solid var(--card-border, #302f30);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.75rem;
+            width: 100%;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .whatsapp-card:hover {
+            border-color: #25D366;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.15);
+        }
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: #25D366;
+            color: #ffffff !important;
+            border: none;
+            padding: 16px 28px;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .whatsapp-btn:hover {
+            background-color: #20ba5a;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            color: #ffffff !important;
+        }
+        .whatsapp-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+        .whatsapp-divider {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 380px;
+            gap: 1rem;
+            color: var(--card-muted, #807A6F);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+        .whatsapp-divider::before,
+        .whatsapp-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--card-border, #302f30);
+        }
+        .whatsapp-qr-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .qr-frame {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            display: inline-block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+        .qr-frame:hover {
+            transform: scale(1.04);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
+        }
+        .qr-frame img {
+            width: 170px;
+            height: 170px;
+            display: block;
+        }
+        .qr-hint {
+            color: var(--text-muted, #dedede);
+            font-size: 14px;
+            max-width: 320px;
+            line-height: 1.4;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .whatsapp-card {
+                padding: 2rem 1.25rem;
+            }
+            .whatsapp-btn {
+                padding: 14px 20px;
+                font-size: 14px;
+            }
+            .qr-frame img {
+                width: 150px;
+                height: 150px;
+            }
+        }
     </style>
 </head>
 <body class="dark-grid">
@@ -169,21 +285,25 @@
                 </div>
             </div>
 
-            <form class="form" action="mailto:contacto.carlossolis@gmail.com" method="post" enctype="text/plain">
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" required>
+                        <div class="whatsapp-card">
+                <a href="https://wa.me/51930871217?text=%C2%A1Hola%21%20Vi%20tu%20portafolio%20y%20me%20interesan%20tus%20servicios%2C%20%C2%BFme%20podr%C3%ADas%20brindar%20mayor%20informaci%C3%B3n%3F" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.301-.15-1.78-.877-2.056-.977-.276-.1-.477-.15-.678.15-.2.301-.778.977-.954 1.178-.175.2-.351.226-.652.075-.301-.15-1.272-.469-2.423-1.496-.896-.799-1.501-1.786-1.677-2.087-.175-.301-.019-.464.131-.614.136-.135.301-.351.452-.527.15-.175.2-.301.3-.501.1-.2.05-.376-.025-.526-.075-.15-.678-1.631-.929-2.234-.244-.588-.493-.508-.678-.517-.175-.009-.376-.009-.577-.009-.2 0-.527.075-.803.376-.276.301-1.054 1.03-1.054 2.511 0 1.482 1.079 2.912 1.23 3.113.15.2 2.123 3.242 5.143 4.547.719.31 1.28.496 1.718.635.722.23 1.378.197 1.897.12.578-.087 1.78-.727 2.031-1.43.251-.703.251-1.305.176-1.43-.075-.126-.276-.201-.577-.352zm-5.435 7.422C6.46 21.804 2.196 17.54 2.196 12.28 2.196 6.966 6.514 2.65 11.83 2.65c5.316 0 9.633 4.316 9.633 9.63 0 5.263-4.263 9.524-9.426 9.524zm0-20.672C5.64 1.132.72 6.052.72 12.242c0 2.02.534 3.988 1.547 5.723L.68 23.32l5.518-1.447a11.455 11.455 0 0 0 5.84 1.597c6.19 0 11.11-4.92 11.11-11.11 0-6.19-4.92-11.11-11.11-11.11z"/>
+                    </svg>
+                    <span>Escribir por WhatsApp</span>
+                </a>
+
+                <div class="whatsapp-divider">
+                    <span>O escanea el código</span>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+
+                <div class="whatsapp-qr-box">
+                    <a href="https://wa.me/51930871217?text=%C2%A1Hola%21%20Vi%20tu%20portafolio%20y%20me%20interesan%20tus%20servicios%2C%20%C2%BFme%20podr%C3%ADas%20brindar%20mayor%20informaci%C3%B3n%3F" target="_blank" rel="noopener noreferrer" class="qr-frame" title="Escanear o hacer clic para abrir WhatsApp">
+                        <img src="assets/images/qr-whatsapp.png" alt="Código QR WhatsApp Carlos Solis Uzuriaga">
+                    </a>
+                    <p class="qr-hint">Apunta con la cámara de tu celular para iniciar la conversación de inmediato.</p>
                 </div>
-                <div class="form-group">
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" name="mensaje" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Enviar</button>
-            </form>
+            </div>
         </section>
     </main>
 
